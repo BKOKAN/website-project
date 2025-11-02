@@ -3,11 +3,20 @@ import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { Trgovina, Novosti, Kontakt } from "./komponente/komponente.js";
+import {
+  Trgovina,
+  Novosti,
+  Kontakt,
+  Prijava,
+  Registracija,
+  LostPassword,
+} from "./komponente/komponente.js";
+
 function App() {
   let brojProizvoda = 0;
 
-  const [contentState, setContentState] = useState("novosti");
+  const [contentState, setContentState] = useState("default");
+
   let content;
   switch (contentState) {
     case "novosti":
@@ -15,6 +24,15 @@ function App() {
       break;
     case "kontakt":
       content = <Kontakt />;
+      break;
+    case "prijava":
+      content = <Prijava setContentState={setContentState} />;
+      break;
+    case "register":
+      content = <Registracija setContentState={setContentState} />;
+      break;
+    case "lostPassword":
+      content = <LostPassword setContentState={setContentState} />;
       break;
     default:
       content = <Trgovina />;
@@ -27,7 +45,7 @@ function App() {
         <div className="headerDiv">
           <div className="kosarica">
             <p>
-              <span> {brojProizvoda} </span> proizvoda u
+              <span>{brojProizvoda}</span> proizvoda u
               <ShoppingCartIcon
                 style={{
                   width: "32px",
@@ -37,55 +55,80 @@ function App() {
               />
             </p>
             <Button variant="primary" size="sm">
-              Vidi Kosaricu
+              Vidi košaricu
             </Button>
           </div>
+
           <h1 className="companyName">
             MOTO <span>DIJELOVI</span>
           </h1>
+
           <div className="ButtonDiv">
-            <Button variant="primary" size="sm">
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={() => setContentState("prijava")}
+            >
               Prijava
             </Button>
-            <Button variant="primary" size="sm">
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={() => setContentState("kontakt")}
+            >
               Kontakt
             </Button>
           </div>
         </div>
+
         <ul className="izbornik">
           <li className="Home active">
             Home
             <ul className="Home-List">
-              <li className="Novosti">Novosti</li>
-              <li className="NoviProizvodi">Novi Proizvodi</li>
+              <li onClick={() => setContentState("novosti")}>Novosti</li>
+              <li onClick={() => setContentState("default")}>Novi Proizvodi</li>
             </ul>
           </li>
+
           <li className="Trgovina">
             Trgovina
             <ul className="Trgovina-lista">
-              <li className="Auspusi">Auspusi</li>
-              <li className="Dijelovi">Dijelovi</li>
+              <li onClick={() => setContentState("default")}>Auspusi</li>
+              <li onClick={() => setContentState("default")}>Dijelovi</li>
             </ul>
           </li>
-          <li className="0nama">
+
+          <li className="Onama">
             O nama
             <ul>
-              <li className="Kontakt">Kontakt</li>
-              <li className="Informacijeonama">Informacije o nama</li>
+              <li onClick={() => setContentState("kontakt")}>Kontakt</li>
+              <li>Informacije o nama</li>
             </ul>
           </li>
+
           <li className="Kupac">
             Kupac
             <ul>
-              <li className="Prijava">Prijava</li>
-              <li className="Izgubljenalozinka">Izgubljena lozinka</li>
+              <li onClick={() => setContentState("prijava")}>Prijava</li>
+              <li
+                onClick={() => setContentState("register")}
+                className="Registracijanovogkorisnika"
+              >
+                Registracija novog kupca
+              </li>
             </ul>
           </li>
-          <li className="Registracijanovogkorisnika">
-            Registracija novog kupca
+          <li>
+            Administracija
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+            </ul>
           </li>
         </ul>
       </header>
+
       <main>{content}</main>
     </div>
   );

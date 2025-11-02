@@ -57,7 +57,7 @@
 }
 
 .listItem > h2 {
-  font-size: 14px;
+  font-size: 15px;
   background-color: orange;
   padding: 0 12px;
   margin: 0;
@@ -111,7 +111,7 @@
 }
 
 .proizvodi > h2 {
-  font-size: 14px;
+  font-size: 20px;
   background-color: orange;
   padding: 2px 12px;
   text-align: center;
@@ -288,7 +288,7 @@
 }
 
 .Novosti > h2 {
-  font-size: 14px;
+  font-size: 20px;
   margin: 10px 0 20px 0;
   background-color: orange;
   box-shadow: 6px 6px 5px #999;
@@ -427,7 +427,7 @@ main {
 .izbornik {
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0;
   margin: 0;
 }
@@ -558,12 +558,120 @@ header {
 }
 
 .KontaktJsx > h2 {
-  font-size: 14px;
+  font-size: 20px;
   margin: 10px 0 20px 0;
   background-color: orange;
   box-shadow: 6px 6px 5px #999;
   padding: 2px 12px;
   text-align: center;
+}
+
+.prijava-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px 25px;
+  background-color: rgb(221, 221, 221);
+  box-shadow: 6px 6px 5px #999;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.prijava-container h2 {
+  text-align: center;
+  font-size: 20px;
+  background-color: orange;
+  color: black;
+  padding: 8px;
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 4px #888;
+}
+
+.prijava-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.forgot-password {
+  text-decoration: none;
+  color: #0d6efd;
+  border: none;
+  background-color: #ddd;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: #0b5ed7;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 8px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0b5ed7;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.register-text button {
+  color: #0d6efd;
+  text-decoration: none;
+  background-color: #ddd;
+  border: none;
+}
+
+.register-text button:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 1023px) {
@@ -590,6 +698,11 @@ header {
     justify-items: center;
     align-items: center;
   }
+
+  .prijava-container {
+    width: 90%;
+    margin: 20px auto;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -602,6 +715,10 @@ header {
   .proizvod {
     width: 48%;
     height: 20%;
+  }
+
+  .prijava-container {
+    width: 400px;
   }
 }
 
@@ -618,5 +735,9 @@ header {
   .KontaktJsx {
     width: 98%;
     height: 100rem;
+  }
+
+  .prijava-container {
+    width: 400px;
   }
 }
