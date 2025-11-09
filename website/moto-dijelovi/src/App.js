@@ -47,7 +47,7 @@ function App() {
     <div className="App">
       <header>
         <div className="headerDiv">
-          <div className="kosarica">
+          <div className="kosaricaEl">
             <p>
               <span>{brojProizvoda}</span> proizvoda u
               <ShoppingCartIcon
@@ -98,12 +98,8 @@ function App() {
             </ul>
           </li>
 
-          <li className="Trgovina">
+          <li onClick={() => setContentState("default")} className="Trgovina">
             Trgovina
-            <ul className="Trgovina-lista">
-              <li onClick={() => setContentState("default")}>Auspusi</li>
-              <li onClick={() => setContentState("default")}>Dijelovi</li>
-            </ul>
           </li>
 
           <li className="Onama">

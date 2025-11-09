@@ -395,7 +395,7 @@
 }
 
 .ButtonDiv,
-.kosarica {
+.kosaricaEl {
   display: flex;
   flex-direction: column;
   width: 150px;
@@ -407,7 +407,7 @@
   height: 30px;
 }
 
-.kosarica > p > span {
+.kosaricaEl > p > span {
   color: rgb(255, 72, 72);
 }
 
@@ -674,6 +674,65 @@ header {
   text-decoration: underline;
 }
 
+.kosarica {
+  width: 100%;
+}
+
+.kosarica > h2 {
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+  background-color: orange;
+  box-shadow: 6px 6px 5px #999;
+  padding: 2px 12px;
+  text-align: center;
+}
+
+.kosaricaProizvodi {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 per row */
+  gap: 20px;
+  width: 100%;
+  justify-items: center;
+}
+
+.kosaricaItem {
+  background-color: rgb(221, 221, 221);
+  box-shadow: 6px 6px 5px #999;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px; /* prevents items from stretching too wide */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kosaricaNaziv,
+.kosaricaSlika {
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap; /* prevents line breaks */
+  overflow: hidden; /* hides overflow text */
+  text-overflow: ellipsis; /* adds "..." at the end */
+  max-width: 250px; /* adjust width for your layout */
+  display: block;
+}
+
+.kosaricaSlika {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.kosaricaButtoni {
+  width: 100%;
+  justify-items: flex-start;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 1023px) {
   header,
   .TrgovinaContent,
@@ -703,6 +762,9 @@ header {
     width: 90%;
     margin: 20px auto;
   }
+  .kosaricaProizvodi {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -719,6 +781,9 @@ header {
 
   .prijava-container {
     width: 400px;
+  }
+  .kosaricaProizvodi {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on mid desktops */
   }
 }
 
@@ -739,5 +804,8 @@ header {
 
   .prijava-container {
     width: 400px;
+  }
+  .kosaricaProizvodi {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on mid desktops */
   }
 }
