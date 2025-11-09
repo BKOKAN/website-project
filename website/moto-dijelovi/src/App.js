@@ -10,6 +10,7 @@ import {
   Prijava,
   Registracija,
   LostPassword,
+  Kosarica,
 } from "./komponente/komponente.js";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
     case "lostPassword":
       content = <LostPassword setContentState={setContentState} />;
       break;
+    case "kosarica":
+      content = <Kosarica setContentState={setContentState} />;
+      break;
     default:
       content = <Trgovina />;
       break;
@@ -54,7 +58,11 @@ function App() {
                 }}
               />
             </p>
-            <Button variant="primary" size="sm">
+            <Button
+              onClick={() => setContentState("kosarica")}
+              variant="primary"
+              size="sm"
+            >
               Vidi košaricu
             </Button>
           </div>

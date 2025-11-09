@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { dijeloviKategorije, proizvodi } from "../functions/data";
+import { useCart } from "./CartProvider";
 import useResetDropdowns from "../hooks/useResetDropdowns";
 
 export default function Trgovina() {
@@ -29,13 +30,7 @@ export default function Trgovina() {
     setSearchGodinaIzgradnje,
   });
 
-  // let motor = {
-  //   tip: "",
-  //   marka: "",
-  //   kubikaza: "",
-  //   model: "",
-  //   godinaProizvodnje: "",
-  // };
+  const { addToCart } = useCart();
 
   let proizvodiCheckbox = false;
 
@@ -72,7 +67,12 @@ export default function Trgovina() {
           />
           <p className="opis">{proizvod.opis}</p>
           <div className="proizvodButtonDiv">
-            <button className="addToCart">Dodaj u kosaricu</button>
+            <button
+              onClick={() => addToCart({ name: ime, ...proizvod })}
+              className="addToCart"
+            >
+              Dodaj u kosaricu
+            </button>
             <button className="detalji">Detalji</button>
           </div>
         </li>
